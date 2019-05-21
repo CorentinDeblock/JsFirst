@@ -1,25 +1,56 @@
-let tab = [1,2,3,4,5,6,7,8,9];
+let answer = ['B','O','N','J','O','U','R'];
 
-let cumul = tab[0]
-for(let i = 1; i < 9;i++){
-    cumul += tab[i]
-    console.log(`${cumul}`);
-}
+let response = ['','','','','','',''];
 
-let actors = ["Stalone","Scarlet","Radclif"];
+function pushLetter(chance,arr,message){
+    let showLetter = "Lettre trouvée : ";
+    let cumul = 0;
 
-for(let i = 0;i < 3;i++){
-    if(i == 0){
-        console.log(`Le premier est ${actors[i]}`);
-    }else if(i == 1){
-        console.log(`Le deuxieme est ${actors[i]}`);
-    }else if(i == 2){
-        console.log(`Le troisième est ${actors[i]}`);
+    for(let i = 0; i < response.length;i++){
+        if(response[i] != ''){
+            showLetter += response[i];
+            cumul++;
+        }
     }
+    if(cumul == response.length){
+        return true;
+    }
+    cumul = 0;
+    let prompter = prompt(showLetter + "\nTentative : " + chance + "\n" + message);
+    arr.push(prompter);
+    
+    let noFind = true;
+
+    for(let i = 0; i < answer.length;i++){
+        if(answer[i] == prompter){
+            response[i] = answer[i];
+            alert("Vous avez trouver une lettre");
+            noFind = false;
+        }
+    }
+    if(noFind){
+        alert("Vous n'avez pas trouver de lettre");
+    }
+    return false;
 }
-let marioTable = ["Mario","Luigi","Peach"];
+function getAllLetter(source,destination){
+    
+}
 
-let marioTableCopy = [...marioTable,"Bowser"];
+function guessLetter(){
+    let tentative = 0;
+    let savedLetter = [];
+    let winOrLoose = false;
+    let fullAnswer = "";
 
-console.log(marioTable);
-console.log(marioTableCopy);
+    while(!winOrLoose){
+        winOrLoose = pushLetter(tentative,savedLetter,"Devinez une lettre");
+        tentative++;
+    }
+    for(let i = 0; i < answer.length; i++){
+        fullAnswer += answer[i];
+    }
+    alert(`Felicitation tu a réussi en ${tentative}\nLe mot était ${fullAnswer}`);
+    alert(`Voici toute les lettre que tu a rentrer $`)
+}
+guessLetter();
