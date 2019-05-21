@@ -26,20 +26,15 @@ console.log(`Il vous reste ${maxConso} de ${food} avant d'atteindre l'age de ${m
 
 let number1 = 1;
 let number2 = 2;
+let number3 = 4;
+let number4 = 2;
+let number5 = 3;
 
 console.log(`${number1} + ${number2} = ${number1 + number2}`)
 
-let number3 = 4;
-let number4 = 2;
-
 console.log(`${number3} / ${number4} = ${number3 / number4}`)
-
-let number5 = 3;
 
 console.log(`(1+2) * 3 = ${(number1 + number2) * number5}`);
 
-console.log(`${(number1 + number2) * number5} + ${number3 / number4} = ${(number1 + number2) * number5 + number3 / number4}`)
-
 let reponse = (number1 + number2) * number5 + number3 / number4;
-
-console.log(`(1 + 2) * 3 + 4 / 2 = ${(number1 + number2) * number5 + number3 / number4}`)
+console.log(`${(number1 + number2) * number5} + ${number3 / number4} = ${reponse}`)
