@@ -1,56 +1,27 @@
-let answer = ['B','O','N','J','O','U','R'];
+let tab1 = [7, 5, -12, 6, 32, 18, 14, -2]
+let tab2 = [-3, 9, 21, 36, 27, 54, 17, 35]
+let respond = Math.min(...tab1) + Math.max(...tab2);
 
-let response = ['','','','','','',''];
+console.log(`Plus petite valeur : ${Math.min(...tab1)}`)
+console.log(`plus grande valeur : ${Math.max(...tab2)}`)
+console.log(`Soustraction : ${respond}`)
 
-function pushLetter(chance,arr,message){
-    let showLetter = "Lettre trouvée : ";
-    let cumul = 0;
+let floatBateau = 10.4;
+let couleBateau = Math.ceil(floatBateau * -1);
+let voieBateau = Math.floor(floatBateau);
 
-    for(let i = 0; i < response.length;i++){
-        if(response[i] != ''){
-            showLetter += response[i];
-            cumul++;
-        }
-    }
-    if(cumul == response.length){
-        return true;
-    }
-    cumul = 0;
-    let prompter = prompt(showLetter + "\nTentative : " + chance + "\n" + message);
-    arr.push(prompter);
-    
-    let noFind = true;
+console.log(couleBateau);
+console.log(voieBateau);
 
-    for(let i = 0; i < answer.length;i++){
-        if(answer[i] == prompter){
-            response[i] = answer[i];
-            alert("Vous avez trouver une lettre");
-            noFind = false;
-        }
-    }
-    if(noFind){
-        alert("Vous n'avez pas trouver de lettre");
-    }
-    return false;
-}
-function getAllLetter(source,destination){
-    
-}
+let random = Math.ceil(Math.random() * (100-50) + 50);
+console.log(random);
 
-function guessLetter(){
-    let tentative = 0;
-    let savedLetter = [];
-    let winOrLoose = false;
-    let fullAnswer = "";
+let random2 = Math.random();
+console.log(random2)
 
-    while(!winOrLoose){
-        winOrLoose = pushLetter(tentative,savedLetter,"Devinez une lettre");
-        tentative++;
-    }
-    for(let i = 0; i < answer.length; i++){
-        fullAnswer += answer[i];
-    }
-    alert(`Felicitation tu a réussi en ${tentative}\nLe mot était ${fullAnswer}`);
-    alert(`Voici toute les lettre que tu a rentrer $`)
-}
-guessLetter();
+let random3 = Math.ceil(Math.random() * 10);
+console.log(random3);
+
+let arr = ["Goro", "Johnny Cago", "Kano", "Liu Kano", "Raiden", "Reptil", "Scorpion", "Shang Tsun", "Sonya", "Sub-Zero"]
+let index = Math.ceil(Math.random() * arr.length);
+console.log(arr[index - 1]);
