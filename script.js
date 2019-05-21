@@ -1,40 +1,28 @@
-let languages = prompt("Choissisez votre langue");
-let message = "";
-
-if(languages == "fr"){
-    message = "Bonjours tout le monde";
-}else if(languages == "en"){
-    message = "Hello world";
-}else if(languages == "es"){    
-    message = "Hola, Mundo"
-}else{
-    message = "Langue non défini";
+function substract(a,b){
+    console.log(`${a} - ${b} = ${a - b}`)
 }
-console.log(message);
-
-let score = 80;
-let result;
-
-if(score >= 90){
-    result = "A";
-}else if(score < 90){
-    result = "B"
-}else if(score <= 50){
-    result = "C"
-}else{
-    result = "D"
+function division(a,b){
+    console.log(`${a} / ${b} = ${a / b}`)
+}
+function multiplication(a,b){
+    console.log(`${a} * ${b} = ${a * b}`)
+}
+function percents(value,percentage){
+    console.log(`${percentage} de ${value} = ${value * (percentage/100)}`);
+}
+function velocity(distance,timeinHours){
+    console.log(`${Math.floor(distance / timeinHours)} Km/h`);
 }
 
-console.log(`Votre note est : ${result}`);
+let a = 10;
+let b = 5;
 
-let sing = "orange";
-let numberFruits = 3;
-let resultFruits;
+let percent = 50;
+let distance = 10;
+let time = 0.30;
 
-if(numberFruits > 1){
-    sing += "s";
-}
-
-resultFruits = `J'ai ${numberFruits} ${sing}`;
-
-console.log(resultFruits);
+substract(a,b);
+division(a,b);
+multiplication(a,b);
+percents(a,percent);
+velocity(distance,time);
