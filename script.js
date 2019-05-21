@@ -1,28 +1,34 @@
-function substract(a,b){
-    console.log(`${a} - ${b} = ${a - b}`)
+for(let i = 0; i < 20; i++){
+    let modulo = (i + 1) % 2;
+    if(modulo == 1){
+        console.log(`Le chiffre ${i + 1} est impair`)
+    }else{
+        console.log(`Le chiffre ${i + 1} est pair`)
+    }
 }
-function division(a,b){
-    console.log(`${a} / ${b} = ${a / b}`)
-}
-function multiplication(a,b){
-    console.log(`${a} * ${b} = ${a * b}`)
-}
-function percents(value,percentage){
-    console.log(`${percentage} de ${value} = ${value * (percentage/100)}`);
-}
-function velocity(distance,timeinHours){
-    console.log(`${Math.floor(distance / timeinHours)} Km/h`);
+for(let i = 0; i < 10; i++){
+    let index = (i + 1);
+    let multiplication = index * 9;
+    console.log(`${index} * 9 = ${multiplication}`)
 }
 
-let a = 10;
-let b = 5;
+for(let i = 0; i < 100; i++){
+    let index = i+1;
+    if(index > 90){
+        console.log(`Pour ${index} vous avez le grade A`)
+    }else if(index > 80){
+        console.log(`Pour ${index} vous avez le grade B`)
+    }else if(index > 70){
+        console.log(`Pour ${index} vous avez le grade C`)
+    }else if(index > 65){
+        console.log(`Pour ${index} vous avez le grade D`)
+    }else{
+        console.log(`Pour ${index} vous avez le grade F`)
+    }
+}
 
-let percent = 50;
-let distance = 10;
-let time = 0.30;
-
-substract(a,b);
-division(a,b);
-multiplication(a,b);
-percents(a,percent);
-velocity(distance,time);
+let iterate = 4;
+let token = "*";
+for(i = 0; i < iterate;i++){
+    console.log(token.repeat(i + 1));
+}
