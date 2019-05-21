@@ -1,27 +1,83 @@
-let tab1 = [7, 5, -12, 6, 32, 18, 14, -2]
-let tab2 = [-3, 9, 21, 36, 27, 54, 17, 35]
-let respond = Math.min(...tab1) + Math.max(...tab2);
+let character = {
+    name:"Jean",
+    age:40,
+    item_to_give: [],
+}
+function giveItem(perso){
+    let index = Math.random() * perso.item_to_give.length;
+    let save = perso.item_to_give[index];
+    perso.item_to_give[index] = "";
+    return save;
+}
 
-console.log(`Plus petite valeur : ${Math.min(...tab1)}`)
-console.log(`plus grande valeur : ${Math.max(...tab2)}`)
-console.log(`Soustraction : ${respond}`)
+for(property in character){
+    console.log(character[property]);
+}
 
-let floatBateau = 10.4;
-let couleBateau = Math.ceil(floatBateau * -1);
-let voieBateau = Math.floor(floatBateau);
+let sword = {
+    title: "Sword",
+    physics: 10,
+    magic: 0,
+    minLevel: 1,
+    avaible: true,
+}
+let hache = {
+    title: "Axe",
+    physics: 20,
+    magic: 0,
+    minLevel: 4,
+    avaible: true,
+}
+let sceptre = {
+    title: "Scepter",
+    physics: 2,
+    magic: 40,
+    minLevel: 6,
+    avaible: true,
+}
+let spear = {
+    title: "Spear",
+    physics: 15,
+    magic: 0,
+    minLevel: 1,
+    avaible: true,
+}
 
-console.log(couleBateau);
-console.log(voieBateau);
+let shop = {
+    sell: [sword,hache,sceptre,spear],
+    show: function() {
+        for(let i = 0;i < sell.length;i++){
+            console.log(sell[i].name);
+        }
+        console.log(this.sell.length);
+    },
+    showAvaible: function(){
+        for(let i = 0; i < this.sell.length;i++){
+            if(this.sell[i].avaible){
+                console.log(this.sell[i].name);
+            }
+        }
+    },
+    showLowLevel: function(){
+        for(let i = 0; i < this.sell.length;i++){
+            if(this.sell[i].level <= 10){
+                console.log(this.sell[i].name);
+            }
+        }
+    }
+}   
 
-let random = Math.ceil(Math.random() * (100-50) + 50);
-console.log(random);
+shop.show();
 
-let random2 = Math.random();
-console.log(random2)
-
-let random3 = Math.ceil(Math.random() * 10);
-console.log(random3);
-
-let arr = ["Goro", "Johnny Cago", "Kano", "Liu Kano", "Raiden", "Reptil", "Scorpion", "Shang Tsun", "Sonya", "Sub-Zero"]
-let index = Math.ceil(Math.random() * arr.length);
-console.log(arr[index - 1]);
+let mainCharacter = {
+    title: "",
+    level: 10,
+    life: 100,
+    weapon: {
+        name: "",
+        damage: 20,
+    },
+    attack:function(){
+        console.log(`${name} attaque avec l'arme ${weapon.name} les degâts sont ${weapon.damage * level}`)
+    },
+}
