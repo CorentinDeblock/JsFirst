@@ -29,9 +29,9 @@ function pushLetter(chance,message){
         }
     }
     if(noFind){
-        alert("Vous n'avez pas trouver de lettre");
+        alert("Vous n'avez pas trouvé de lettre");
     }else{
-        alert(`Vous avez trouver une lettre ${prompter}`);
+        alert(`Vous avez trouvé une lettre ${prompter}`);
     }
     return false;
 }
@@ -52,7 +52,7 @@ function guessLetter(){
     for(let i = 0; i < arr.length; i++){
         showAllLetter += arr[i];
     }
-    alert(`Felicitation tu a réussi en ${tentative}\nLe mot était ${fullAnswer}`);
-    alert(`Voici toute les lettre que tu a rentrer ${showAllLetter}`)
+    alert(`Felicitations, tu as réussi en ${tentative}\nLe mot était ${fullAnswer}`);
+    alert(`Voici toutes les lettres que tu as rentrées ${showAllLetter}`)
 }
 guessLetter();
