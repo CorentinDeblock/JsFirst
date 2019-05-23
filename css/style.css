@@ -1,5 +1,11 @@
-.hide {
-  transition: opacity 0.5s linear;
+#character {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
