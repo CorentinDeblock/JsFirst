@@ -1,14 +1,15 @@
 let answer = ['B','O','N','J','O','U','R'];
 
-let response = ['','','','','','',''];
+let response = ['_','_','_','_','_','_','_'];
+let arr = [];
 
-function pushLetter(chance,arr,message){
-    let showLetter = "Lettre trouvée : ";
+function pushLetter(chance,message){
+    let showLetter = "Le mot : ";
     let cumul = 0;
 
     for(let i = 0; i < response.length;i++){
-        if(response[i] != ''){
-            showLetter += response[i];
+        showLetter += response[i];
+        if(response[i] != '_'){
             cumul++;
         }
     }
@@ -16,7 +17,7 @@ function pushLetter(chance,arr,message){
         return true;
     }
     cumul = 0;
-    let prompter = prompt(showLetter + "\nTentative : " + chance + "\n" + message);
+    let prompter = prompt(showLetter + "\nTentative : " + chance + "\n" + message).toUpperCase();
     arr.push(prompter);
     
     let noFind = true;
@@ -24,33 +25,34 @@ function pushLetter(chance,arr,message){
     for(let i = 0; i < answer.length;i++){
         if(answer[i] == prompter){
             response[i] = answer[i];
-            alert("Vous avez trouver une lettre");
             noFind = false;
         }
     }
     if(noFind){
         alert("Vous n'avez pas trouver de lettre");
+    }else{
+        alert(`Vous avez trouver une lettre ${prompter}`);
     }
     return false;
-}
-function getAllLetter(source,destination){
-    
 }
 
 function guessLetter(){
     let tentative = 0;
-    let savedLetter = [];
     let winOrLoose = false;
     let fullAnswer = "";
+    let showAllLetter = "";
 
     while(!winOrLoose){
-        winOrLoose = pushLetter(tentative,savedLetter,"Devinez une lettre");
+        winOrLoose = pushLetter(tentative,"Devinez une lettre");
         tentative++;
     }
     for(let i = 0; i < answer.length; i++){
         fullAnswer += answer[i];
     }
+    for(let i = 0; i < arr.length; i++){
+        showAllLetter += arr[i];
+    }
     alert(`Felicitation tu a réussi en ${tentative}\nLe mot était ${fullAnswer}`);
-    alert(`Voici toute les lettre que tu a rentrer $`)
+    alert(`Voici toute les lettre que tu a rentrer ${showAllLetter}`)
 }
 guessLetter();
