@@ -16,7 +16,6 @@ function pushLetter(chance,message){
     if(cumul == response.length){
         return true;
     }
-    cumul = 0;
     let prompter = prompt(showLetter + "\nTentative : " + chance + "\n" + message).toUpperCase();
     arr.push(prompter);
     
