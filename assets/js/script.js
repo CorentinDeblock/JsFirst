@@ -70,16 +70,16 @@ req.onload = (event) => {
         response.forEach(rank);
         response.forEach(pushRanking); 
         let min = response[0],max = response[response.length - 1];
-        console.log(min.score);
-        console.log(max.score);
         
         pushBest(min);
         pushBest(max);
 
-        console.log("From bahrain")
-        console.log(response.filter((value) => {
+        console.log(min.score);
+        console.log(max.score);
+
+        console.log("From bahrain : " + response.filter((value) => {
             return value.country = "Bahrain";
-        }))
+        }).length)
     }
 }
 req.open('get',"assets/json/data.json",true);
