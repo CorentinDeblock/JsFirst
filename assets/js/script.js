@@ -90,14 +90,14 @@ req.send();
 research.addEventListener("keydown",(event)=>{
     let child = ranking.children;
     let value = event.target.value;
-
+    let champs = ranking.querySelector("#categories");
     if(value == ""){
         for(let i = 1; i < child.length;i++){
             child[i].classList.remove("hide");
         }      
     }else{
         for(let i = 1; i < child.length;i++){
-            if(!child[i].innerText.match(value)){
+            if(!child[i].innerText.match(value) && child[i].tagName != "TBODY"){
                 child[i].classList.add("hide");
             }
         }   
