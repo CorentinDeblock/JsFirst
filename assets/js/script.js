@@ -1,6 +1,7 @@
 let arr = [];
 
-let table = document.querySelector("table");
+let ranking = document.querySelector("#ranking");
+let best = document.querySelector("#top");
 let research = document.querySelector("#country")
 
 function randomize(min,max){
@@ -49,11 +50,14 @@ function createTR(name,score,rank,country) {
 
     return element;
 }   
-function pushTR(li){
+function pushTR(table,li){
     table.appendChild(li);
 }
-function pushTable(value){
-    pushTR(createTR(value.name,value.score,value.rank,value.country))
+function pushRanking(value){
+    pushTR(ranking,createTR(value.name,value.score,value.rank,value.country))
+}
+function pushBest(value){
+    pushTR(best,createTR(value.name,value.score,value.rank,value.country))
 }
 
 let req = new XMLHttpRequest();
@@ -66,16 +70,25 @@ req.onload = (event) => {
         })
         response.sort(compareScore);
         response.forEach(rank);
-        response.forEach(pushTable); 
-        console.log(response[0].score)
-        console.log(response[response.length - 1].score);
+        response.forEach(pushRanking); 
+        let min = response[0],max = response[response.length - 1];
+        console.log(min.score);
+        console.log(max.score);
+        
+        pushBest(min);
+        pushBest(max);
+
+        console.log("From bahrain")
+        console.log(response.filter((value) => {
+            return value.country = "Bahrain";
+        }))
     }
 }
 req.open('get',"assets/json/data.json",true);
 req.send();
 
 research.addEventListener("keydown",(event)=>{
-    let child = table.children;
+    let child = ranking.children;
     let value = event.target.value;
 
     if(value == ""){
