@@ -1,7 +1,5 @@
-let arr = [];
-
-let ranking = document.querySelector("#ranking");
-let best = document.querySelector("#top");
+let ranking = document.querySelector("#ranking tbody");
+let best = document.querySelector("#top tbody");
 let research = document.querySelector("#country")
 
 function randomize(min,max){
@@ -87,10 +85,10 @@ req.onload = (event) => {
 req.open('get',"assets/json/data.json",true);
 req.send();
 
-research.addEventListener("keydown",(event)=>{
+research.addEventListener("keyup",(event)=>{
     let child = ranking.children;
-    let value = event.target.value;
-    let champs = ranking.querySelector("#categories");
+    let value = research.value;
+
     if(value == ""){
         for(let i = 1; i < child.length;i++){
             child[i].classList.remove("hide");
@@ -99,6 +97,8 @@ research.addEventListener("keydown",(event)=>{
         for(let i = 1; i < child.length;i++){
             if(!child[i].innerText.match(value) && child[i].tagName != "TBODY"){
                 child[i].classList.add("hide");
+            }else{
+                child[i].classList.remove("hide");
             }
         }   
     }
